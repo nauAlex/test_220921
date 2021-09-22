@@ -1,0 +1,21 @@
+1) SELECT c.name as category_name 
+   FROM `products` p 
+   LEFT JOIN categories c ON p.category_id=c.id 
+   WHERE p.id IN (1, 2, 3, 4)
+
+2) 	SELECT products.id, products.name as product_name, categories.name as category_name 
+	FROM products 
+	LEFT JOIN categories ON products.category_id=categories.id 
+	WHERE categories.id IN (1,2,3,4)
+
+3) SELECT c.name as category_name, count(DISTINCT p.name) as products_number 
+   FROM `products` p 
+   LEFT JOIN categories c ON p.category_id=c.id 
+   WHERE c.id IN (3, 4, 5) 
+   GROUP BY c.id
+
+4) SELECT c.name as category_name, count(p.id) as products_number 
+   FROM `products` p 
+   LEFT JOIN categories c ON p.category_id=c.id 
+   WHERE c.id IN (3, 4, 5) 
+   GROUP BY c.id
